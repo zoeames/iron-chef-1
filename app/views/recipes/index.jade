@@ -4,14 +4,27 @@ block content
   #controls
     #visibility
       button.teal#hide Hide Form
-      button.teal#show Show Form
+      button.teal.space#show Show Form
     form(method='post', action='/recipes')
+      select(name='category')
+        option(value='Breakfast') Breakfast
+        option(value='Lunch') Lunch
+        option(value='Dinner') Dinner
+        option(value='Desert') Desert
+        option(value='other') Desert
       input(name='name', type='text', placeholder='Chicken', autofocus=true)
       input(name='photo', type='text', placeholder='Image URL')
       input(name='ingredients', type='text', placeholder='chicken, water, eggs')
       label Enter Directions
       input(name='directions')
       button.yellow Add Recipe
+  ul#categories
+   li:  a(href='#') Breakfast
+   li:  a(href='#') Lunch
+   li:  a(href='#') Dinner
+   li:  a(href='#') Desert
+
+
 
   #recipes
     each recipe in recipes

@@ -13,3 +13,11 @@ exports.create = function(req, res){
     res.render('recipes/recipe', {recipe:recipe});
   });
 };
+
+
+exports.destroy = function(req, res){
+  Recipe.deleteById(req.params.id, function(err, recipe){
+    res.send({id:req.params.id});
+  });
+};
+
