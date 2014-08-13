@@ -5,15 +5,11 @@
     $('#hide').click(hide);
     $('#show').click(show);
     $('form').submit(addRecipe);
+    $('#recipes').on('click', '.delete', delRecipe);
   });
 
-  function hide(){
-    $('form').fadeOut();
-  }
-
-
-  function show(){
-    $('form').fadeIn();
+  function delRecipe(){
+    alert('you clicked del button');
   }
 
   function addRecipe(e){
@@ -21,11 +17,25 @@
         type = $('form').attr('method'),
         url  = $('form').attr('action');
 
+    $('input, textarea').val('');
+
     $.ajax({url:url, type:type, data:data, dataType:'html', success:function(html){
-      $('#recipes').prepend(html);
+      var $recipe = $(html);
+      $recipe.css('display', 'none');
+      $('#recipes').prepend($recipe);
+      $recipe.fadeIn(3000);
     }});
 
     e.preventDefault();
+  }
+
+
+  function hide(){
+    $('form').fadeOut();
+  }
+
+  function show(){
+    $('form').fadeIn();
   }
 
 })();

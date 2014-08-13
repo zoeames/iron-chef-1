@@ -3,15 +3,15 @@ block content
 
   #controls
     #visibility
-      button#hide Hide Form
-      button#show Show Form
+      button.teal#hide Hide Form
+      button.teal#show Show Form
     form(method='post', action='/recipes')
       input(name='name', type='text', placeholder='Chicken', autofocus=true)
       input(name='photo', type='text', placeholder='Image URL')
       input(name='ingredients', type='text', placeholder='chicken, water, eggs')
       label Enter Directions
       input(name='directions')
-      button Add Recipe
+      button.yellow Add Recipe
 
   #recipes
     each recipe in recipes
